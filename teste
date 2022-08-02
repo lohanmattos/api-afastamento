@@ -1,0 +1,9 @@
+        const data = await params.data;
+        const dataFormat = format(new Date(parseISO(data)),'yyyy-MM-dd');
+
+        console.log(dataFormat);
+
+        const afastamento = await Database.
+        from('afastamentos').
+        //maior e igual a data
+        where('dataInicio', '>=', dataFormat)

@@ -78,11 +78,13 @@ module.exports = {
       user: Env.get('DB_USER', 'root'),
       password: Env.get('DB_PASSWORD', ''),
       database: Env.get('DB_DATABASE', 'adonis'),
+      //config do heroku
       ssl: {
         rejectUnauthorized: false
       }
     },
     debug: Env.get('DB_DEBUG', false)
   }
-}
 
+
+}

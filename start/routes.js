@@ -24,3 +24,5 @@ Route.get('/afastamentos/:id', 'AfastamentoController.show')
 Route.post('/afastamentos/criar', 'AfastamentoController.store')
 Route.put('/afastamentos/editar/:id', 'AfastamentoController.update')
 Route.delete('/afastamentos/:id', 'AfastamentoController.delete')
+
+Route.get('/afastamentos/filtro/:data/:dataFim', 'AfastamentoController.filtarPorData')

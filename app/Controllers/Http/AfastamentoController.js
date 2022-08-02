@@ -1,6 +1,9 @@
 'use strict'
 
 const Afastamentos = use('App/Models/Afastamento')
+const Database = use('Database')
+
+const { format, parseISO} = require('date-fns')
 
 class AfastamentoController {
 
@@ -16,6 +19,24 @@ class AfastamentoController {
 
     async show({ params }) {
         return await Afastamentos.find(params.id);
+    }
+
+    async filtarPorData({ params}) {
+        const data = await params.data;
+        const dataFormatIncial = format(new Date(parseISO(data)),'yyyy-MM-dd');
+
+        const dataFim = await params.dataFim;
+        const dataFormatFim = format(new Date(parseISO(dataFim)),'yyyy-MM-dd');
+
+
+        const afastamento = await Database.
+        from('afastamentos').
+        //maior e igual a data
+        //where('dataInicio', '>=', dataFormat)
+        where('dataInicio', 'Between', [dataFormatIncial, dataFormatFim])
+
+    
+        return afastamento
     }
 
     async update({ params, request }) {
