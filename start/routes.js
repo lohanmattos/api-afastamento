@@ -19,10 +19,18 @@ const AfastamentoController = require('../app/Controllers/Http/AfastamentoContro
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
+Route.get('/', () => {
+    return { greeting: 'Hello world' }
+  })
+
 Route.get('/afastamentos',"AfastamentoController.list")
 Route.get('/afastamentos/:id', 'AfastamentoController.show')
 Route.post('/afastamentos/criar', 'AfastamentoController.store')
 Route.put('/afastamentos/editar/:id', 'AfastamentoController.update')
 Route.delete('/afastamentos/:id', 'AfastamentoController.delete')
-
+Route.get('/afastamentos/dados',"AfastamentoController.dadosEstatisticos")
 Route.get('/afastamentos/filtro/:data/:dataFim', 'AfastamentoController.filtarPorData')
+
+Route.post('/user', 'UserController.store');
+Route.post('/login', 'UserController.login');
+Route.get('/user', 'UserController.index');

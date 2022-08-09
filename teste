@@ -7,3 +7,5 @@
         from('afastamentos').
         //maior e igual a data
         where('dataInicio', '>=', dataFormat)
+
+            //"start": "ENV_SILENT=true node server.js",\\
