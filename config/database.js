@@ -80,7 +80,7 @@ module.exports = {
       database: Env.get('DB_DATABASE', 'adonis'),
       //config do heroku
       ssl: {
-        rejectUnauthorized: false
+        rejectUnauthorized: true
       }
     },
     debug: Env.get('DB_DEBUG', false)
